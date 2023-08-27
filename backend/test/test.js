@@ -9,9 +9,9 @@ beforeAll(async () => {
   await testBase.resetDatabase(db);
 });
 
-/**
- * Reset the database after every test case
- */
+
+//  Reset the database after every test case
+
 afterEach(async () => {
   await testBase.resetDatabase(db);
 });
@@ -211,3 +211,4 @@ describe("Student Endpoints", () => {
     });
   });
 });
+
