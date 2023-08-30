@@ -51,27 +51,27 @@ export class StudentTableComponent implements OnInit {
     })
   }
 
-  search(value: string) {
-    this.service.getStudentData().subscribe((response) => {
-        this.studentData = Object.keys(response)
-            .map((key) => [response[key]])
-            .filter((student) => student[0].name.toLowerCase().includes(value.toLowerCase()));
-    }, (error) => {
-        console.log('ERROR - ', error)
-    })
-  }
-
-  // search(value) {
-  //   let foundItems = [];
-  //   if (value.length <= 0) {
-  //     this.getStudentData();
-  //   } else {
-  //     let b = this.studentData.filter((student) => {
-  //       if (student[0].name.toLowerCase().indexOf(value) > -1) {
-  //         foundItems.push(student)
-  //       }
-  //     });
-  //     this.studentData = foundItems;
-  //   }
+  // search(value: string) {
+  //   this.service.getStudentData().subscribe((response) => {
+  //       this.studentData = Object.keys(response)
+  //           .map((key) => [response[key]])
+  //           .filter((student) => student[0].name.toLowerCase().includes(value.toLowerCase()));
+  //   }, (error) => {
+  //       console.log('ERROR - ', error)
+  //   })
   // }
+
+  search(value) {
+    let foundItems = [];
+    if (value.length <= 0) {
+      this.getStudentData();
+    } else {
+      let b = this.studentData.filter((student) => {
+        if (student[0].name.toLowerCase().indexOf(value) > -1) {
+          foundItems.push(student)
+        }
+      });
+      this.studentData = foundItems;
+    }
+  }
 }
