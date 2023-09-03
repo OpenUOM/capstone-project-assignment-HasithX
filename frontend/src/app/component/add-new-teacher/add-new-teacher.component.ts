@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AppServiceService} from '../../app-service.service';
+import {AppServiceService} from '../../app.service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class AddNewTeacherComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createTeacher(value){
+  createTeacher(value: { id: any; name: any; age: any; }){
 
     const teacher = {
       id : value.id,
@@ -23,7 +23,7 @@ export class AddNewTeacherComponent implements OnInit {
     }
 
 
-    this.service.addTeacher(teacher).subscribe((response)=>{
+    this.service.addTeacher(teacher).subscribe((response:any)=>{
       this.router.navigate([''])
     },(error)=>{
       console.log('ERROR - ', error)

@@ -7,14 +7,19 @@ import { environment } from './../environments/environment';
 })
 export class AppServiceService {
 
-  readonly ROOT_URL: string;
+  readonly ROOT_URL:string ;
 
   constructor(private http: HttpClient) {
     if(environment.production == false){
-      this.ROOT_URL = 'http://localhost:4401'
+      this.ROOT_URL = 'test'
     }else{
-      this.ROOT_URL = 'http://localhost:8080'
+      this.ROOT_URL = 'api'
     }
+  }
+  
+
+  getTableData() {
+    return this.http.get(`${this.ROOT_URL}/endpoint-for-table-data`);
   }
 
   initializeDB(){
@@ -60,4 +65,6 @@ export class AppServiceService {
   deleteStudent(payload: Object){
     return this.http.post(`${this.ROOT_URL}/deleteStudent`, payload)
   }
+
+
 }

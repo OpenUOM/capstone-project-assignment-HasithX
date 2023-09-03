@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppServiceService } from 'src/app/app-service.service';
+import { AppServiceService } from 'src/app/app.service.service';
 
 @Component({
   selector: 'app-add-new-student',
@@ -14,7 +14,7 @@ export class AddNewStudentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createStudent(value){
+  createStudent(value: { id: any; name: any; age: number; Hometown: any; }){
 
     const student = {
       id : value.id,
