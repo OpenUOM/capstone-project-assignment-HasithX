@@ -2,26 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './component/navbar/navbar.component';
-import { TeacherTableComponent } from './component/teacher-table/teacher-table.component';
-import { StudentTableComponent } from './component/student-table/student-table.component';
-import { AddNewStudentComponent } from './component/add-new-student/add-new-student.component';
-import { AddNewTeacherComponent } from './component/add-new-teacher/add-new-teacher.component';
-import { EditStudentComponent } from './component/edit-student/edit-student.component';
-import { EditTeacherComponent } from './component/edit-teacher/edit-teacher.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StudentTableComponent } from './components/student-table/student-table.component';
+import { TeacherTableComponent } from './components/teacher-table/teacher-table.component';
+import { AddNewTeacherComponent } from './components/add-new-teacher/add-new-teacher.component';
+import { AddNewStudentComponent } from './components/add-new-student/add-new-student.component';
+import { EditStudentComponent } from './components/edit-student/edit-student.component';
+import { EditTeacherComponent } from './components/edit-teacher/edit-teacher.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    TeacherTableComponent,
     StudentTableComponent,
-    AddNewStudentComponent,
+    TeacherTableComponent,
     AddNewTeacherComponent,
+    AddNewStudentComponent,
     EditStudentComponent,
     EditTeacherComponent
   ],
@@ -29,8 +30,8 @@ import { EditTeacherComponent } from './component/edit-teacher/edit-teacher.comp
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
