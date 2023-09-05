@@ -17,10 +17,12 @@ function init(db) {
 }
 
 const knex_db = require("./db-config");
+const testBase = require("./test/testBase");
 
 const dbinitialize = async () => {
     testBase.resetDatabase(knex_db);
 }
+
 
 const readTeachers = async () => {
     const sql = `SELECT * FROM teacher`;
@@ -172,6 +174,7 @@ module.exports = {
     readStudentInfo,
     readTeacherInfo,
     updateStudent,
-    updateTeacher
+    updateTeacher,
+    dbinitialize
 };
 
