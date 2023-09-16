@@ -2,9 +2,10 @@
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
-import { SpecReporter, StacktraceOption } from 'jasmine-spec-reporter';
+const { SpecReporter, StacktraceOption } = require('jasmine-spec-reporter');
 
-export const config = {
+
+module.exports.config = {
   allScriptsTimeout: 11000,
   specs: [
     './src/**/*.e2e-spec.ts'
