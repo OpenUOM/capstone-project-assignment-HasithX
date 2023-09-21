@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { faTrash, faPlus, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import { AppServiceService } from '../../app-service.service';
-
-
 @Component({
   selector: 'app-teacher-table',
   templateUrl: './teacher-table.component.html',
@@ -27,7 +25,7 @@ export class TeacherTableComponent implements OnInit {
     this.router.navigate(['addTeacher'])
   }
 
-  editTeacher(id: any) {
+  editTeacher(id) {
     const navigationExtras: NavigationExtras = {
       state: {
         id: id
@@ -46,28 +44,28 @@ export class TeacherTableComponent implements OnInit {
 
   getTeacherData() {
     this.selected = 'Teachers';
-    this.service.getTeacherData().subscribe((response:any) => {
+    this.service.getTeacherData().subscribe((response) => {
       this.teacherData = Object.keys(response).map((key) => [response[key]]);
     }, (error) => {
       console.log('ERROR - ', error)
     })
   }
 
-  // getStudentData() {
-  //   this.selected = 'Students';
-  //   this.service.getStudentData().subscribe((response) => {
-  //     this.teacherData = response;
-  //   }, (error) => {
-  //     console.log('ERROR - ', error)
-  //   })
-  // }
+  getStudentData() {
+    this.selected = 'Students';
+    this.service.getStudentData().subscribe((response) => {
+      this.teacherData = response;
+    }, (error) => {
+      console.log('ERROR - ', error)
+    })
+  }
 
-  search(value:any) {
-    let foundItems: any[] = [];
+  search(value) {
+    let foundItems = [];
     if (value.length <= 0) {
       this.getTeacherData();
     } else {
-      let b = this.teacherData.filter((teacher:any) => {
+      let b = this.teacherData.filter((teacher) => {
         if (teacher[0].name.toLowerCase().indexOf(value) > -1) {
           foundItems.push(teacher)
         }
@@ -76,7 +74,7 @@ export class TeacherTableComponent implements OnInit {
     }
   }
 
-  deleteTeacher(itemid:any) {
+  deleteTeacher(itemid) {
     const test = {
       id: itemid
     }

@@ -1,10 +1,8 @@
-// import { Selector } from 'testcafe';
-const { Selector } = require('testcafe');
-
+import { Selector } from 'testcafe';
 process.env.NODE_ENV = "test";
 
 fixture`Testing Student UI`
-    .page`http://localhost:9876/student`
+    .page`http://localhost:4401/student`
 
 test('Testing delete students', async t => {
     await t.navigateTo("/addStudent");

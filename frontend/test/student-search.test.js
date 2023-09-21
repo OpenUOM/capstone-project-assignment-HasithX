@@ -1,6 +1,4 @@
-// import { Selector } from 'testcafe';
-const { Selector } = require('testcafe');
-
+import { Selector } from 'testcafe';
 process.env.NODE_ENV = "test";
 
 fixture`Testing Student UI`
