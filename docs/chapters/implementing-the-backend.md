@@ -6,7 +6,7 @@ Implementing the Backend can be divided into 3 parts.
 2. [Creating the Backend server](#22-creating-the-backend-server).
 3. [Starting the server](#23-starting-the-server)
 
-Since, we successfully  added the dummy data during the [Setting up the environment](/docs/chapters/setting-up-the-environment.md) section, let's initialize the database using the `configuration` file provided.
+Since, we successfully added the dummy data during the [Setting up the environment](/docs/chapters/setting-up-the-environment.md) section, let's initialize the database using the `configuration` file provided.
 
 ```javascript
 const dbConnection = require("./sqlite");

@@ -8,64 +8,62 @@ import {AppServiceService} from '../../app-service.service';
   styleUrls: ['./student-table.component.css']
 })
 export class StudentTableComponent implements OnInit {
+
   faTrash = faTrash;
   faPlus = faPlus;
   faPenSquare = faPenSquare;
   studentData: any;
   selected: any;
 
-  constructor(private service: AppServiceService, private router: Router) {}
-  
+  constructor(private service : AppServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.getStudentData();
   }
-  
 
-  addNewStudent() {
-    this.router.navigate(['addStudent']);
+  addNewStudent(){
+    this.router.navigate(['addStudent'])
   }
 
-  editStudent(id:any) {
+  editStudent(id){
     const navigationExtras: NavigationExtras = {
       state: {
-        id: id
+        id : id
       }
     };
-    this.router.navigate(['editStudent'], navigationExtras);
+    this.router.navigate(['editStudent'], navigationExtras )
   }
 
-  getStudentData() {
-    this.service.getStudentData().subscribe(
-      (response:any) => {
-        this.studentData = Object.keys(response).map((key) => [response[key]]);
-      },
-      (error) => {
-        console.log('ERROR - ', error);
-      }
-    );
+  getStudentData(){
+    this.service.getStudentData().subscribe((response)=>{
+      this.studentData = Object.keys(response).map((key) => [response[key]]);
+    },(error)=>{
+      console.log('ERROR - ', error)
+    })
   }
 
-  deleteStudent(itemid:any) {
+  deleteStudent(itemid){
     const student = {
       id: itemid
-    };
-    this.service.deleteStudent(student).subscribe((response) => {
-      this.getStudentData();
-    });
+    }
+    this.service.deleteStudent(student).subscribe((response)=>{
+      this.getStudentData()
+    })
   }
 
-  search(value:any) {
-    let foundItems: any[] = [];
+  search(value) {
+    let foundItems = [];
     if (value.length <= 0) {
       this.getStudentData();
     } else {
-      let b = this.studentData.filter((student:any) => {
+      let b = this.studentData.filter((student) => {
         if (student[0].name.toLowerCase().indexOf(value) > -1) {
-          foundItems.push(student);
+          foundItems.push(student)
         }
       });
       this.studentData = foundItems;
     }
   }
+
+  
 }
